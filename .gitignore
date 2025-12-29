@@ -17,3 +17,6 @@ ENV/
 .idea/
 *.swp
 *.swo
+
+# Store
+.DS_Store

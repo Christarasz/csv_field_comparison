@@ -1,0 +1,119 @@
+===================================================================
+CSV FIELD COMPARISON TOOL - QUICK START GUIDE
+===================================================================
+
+PREREQUISITES:
+- Python 3.8 or higher installed
+- Command line/terminal access
+
+===================================================================
+INSTALLATION STEPS:
+===================================================================
+
+1. Open terminal/command prompt
+
+2. Navigate to project folder:
+   cd path/to/csv_field_comparison
+
+3. Create virtual environment:
+   python -m venv venv
+
+4. Activate virtual environment:
+   
+   Windows:
+   venv\Scripts\activate
+   
+   Mac/Linux:
+   source venv/bin/activate
+   
+   You should see (venv) in your terminal prompt
+
+5. Install dependencies:
+   pip install -r requirements.txt
+   
+   Wait for installation to complete
+
+===================================================================
+RUNNING THE APPLICATION:
+===================================================================
+
+1. Make sure virtual environment is activated (see step 4 above)
+
+2. Run the app:
+   streamlit run src/app.py
+
+3. Your browser will automatically open to:
+   http://localhost:8501
+
+4. If browser doesn't open automatically, manually go to:
+   http://localhost:8501
+
+===================================================================
+USING THE APPLICATION:
+===================================================================
+
+1. UPLOAD FILES:
+   - Click "Upload TEST (output) CSV file"
+   - Click "Upload GOLD CSV file"
+   - Both files must have 'job_id' and 'job_name' columns
+
+2. SELECT FIELDS:
+   - Use filter box to search for specific fields
+   - Check boxes for fields you want to compare
+   - Or click "Select All Filtered Fields"
+
+3. RUN ANALYSIS:
+   - Click "Run Analysis" button
+   - Wait for processing to complete
+   - View accuracy metrics on screen
+
+4. DOWNLOAD RESULTS:
+   - Click "Download Detailed Results (Excel)"
+   - Opens Excel file with two sheets:
+     * Comparison Results (detailed row-by-row)
+     * Accuracy Metrics (summary statistics)
+
+===================================================================
+CONFIGURATION:
+===================================================================
+
+To change which fields use fuzzy matching:
+
+1. Open: src/config.py
+
+2. Edit COMPARE_FIELDS list:
+   COMPARE_FIELDS = [
+       'your_field_name_here',
+       'another_field_name'
+   ]
+
+3. Change similarity threshold (0.0 to 1.0):
+   THRESHOLD = 0.8
+
+4. Save file and restart the app
+
+===================================================================
+STOPPING THE APPLICATION:
+===================================================================
+
+1. Go to terminal where app is running
+2. Press Ctrl+C
+3. Type 'deactivate' to exit virtual environment
+
+===================================================================
+TROUBLESHOOTING:
+===================================================================
+
+ERROR: "streamlit: command not found"
+FIX: Make sure virtual environment is activated
+
+ERROR: "No module named 'streamlit'"
+FIX: Run: pip install -r requirements.txt
+
+ERROR: "Error reading CSV"
+FIX: Ensure CSV files have 'job_id' and 'job_name' columns
+
+ERROR: Port already in use
+FIX: Run: streamlit run src/app.py --server.port 8502
+
+===================================================================
